@@ -1,2 +1,4 @@
-const Home = () => <h2>Welcome to my page!</h2>;
+import BookList from '../components/BookList';
+
+const Home = () => <BookList />;
 export default Home;
