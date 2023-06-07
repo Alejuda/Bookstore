@@ -18,5 +18,5 @@ Book.propTypes = {
   author: PropTypes.string.isRequired,
   progress: PropTypes.string.isRequired,
   handleDelete: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
