@@ -2,24 +2,12 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Book from './Book';
 import AddForm from './AddForm';
+import { useSelector } from 'react-redux';
 
 const BookList = () => {
-  const [books, setBooks] = useState([
-    {
-      id: uuidv4(),
-      title: 'Book 1',
-      author: 'Author 1',
-      progress: '60%',
-    },
-    {
-      id: uuidv4(),
-      title: 'Book 2',
-      author: 'Author 2',
-      progress: '76%',
-    },
-  ]);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const { books } = useSelector((state)=>state.books)
 
   const handleDelete = (id) => {
     const newBooks = books.filter((book) => book.id !== id);
