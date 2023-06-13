@@ -3,17 +3,23 @@ import { v4 as uuidv4 } from 'uuid';
 
 const initialState = [
   {
-    id: uuidv4(),
-    title: 'Book 1',
-    author: 'Author 1',
-    progress: '60%',
+    "item_id": uuidv4(),
+    "title": "The Great Gatsby",
+    "author": "John Smith",
+    "category": "Fiction"
   },
   {
-    id: uuidv4(),
-    title: 'Book 2',
-    author: 'Author 2',
-    progress: '76%',
+    "item_id": uuidv4(),
+    "title": "Anna Karenina",
+    "author": "Leo Tolstoy",
+    "category": "Fiction"
   },
+  {
+    "item_id": uuidv4(),
+    "title": "The Selfish Gene",
+    "author": "Richard Dawkins",
+    "category": "Nonfiction"
+  }
 ];
 
 const booksSlice = createSlice({
@@ -22,17 +28,19 @@ const booksSlice = createSlice({
   reducers: {
     addBook: (state, action) => {
       const newBook = {
-        id: uuidv4(),
-        title: action.payload.title,
-        author: action.payload.author,
-        progress: '0%',
+        "item_id": action.payload.item_id,
+        "title": action.payload.title,
+        "author": action.payload.author,
+        "category": "N/A",
       };
       state.push(newBook);
     },
     removeBook: (state, action) => {
-      const itemId = action.payload.id;
-      return state.filter((item) => item.id !== itemId);
-    },
+      const itemId = state.findIndex((book) => book.item_id === action.payload);
+      if (itemId !== -1) {
+        state.splice(itemId, 1);
+      }
+    }
   },
 });
 
