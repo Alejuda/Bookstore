@@ -1,7 +1,6 @@
+import { useSelector } from 'react-redux';
 import Book from './Book';
 import AddForm from './AddForm';
-import { useSelector } from "react-redux";
-
 
 const BookList = () => {
   const books = useSelector((store) => store.books);
@@ -10,7 +9,8 @@ const BookList = () => {
     <section>
       <div className="books-container">
         {books.map((book) => (
-          <Book key={book.item_id} {...book} />
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          <Book key={book.itemId} {...book} />
         ))}
       </div>
       <AddForm />
