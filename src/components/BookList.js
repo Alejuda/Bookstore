@@ -9,8 +9,13 @@ const BookList = () => {
     <section>
       <div className="books-container">
         {books.map((book) => (
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          <Book key={book.itemId} {...book} />
+          <Book
+            key={book.itemId}
+            itemId={book.itemId}
+            title={book.title}
+            author={book.author}
+            category={book.category}
+          />
         ))}
       </div>
       <AddForm />
