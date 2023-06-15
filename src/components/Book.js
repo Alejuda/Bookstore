@@ -4,6 +4,10 @@ import { removeBook } from '../redux/books/booksSlice';
 import Progress from './Progress';
 import ProgressUpdate from './ProgressUpdate';
 
+function randomProgress() {
+  return Math.floor(Math.random() * 101);
+}
+
 const Book = ({
   title, author, itemId, category,
 }) => {
@@ -32,7 +36,7 @@ const Book = ({
         </div>
       </div>
       <div className="book-extra">
-        <Progress progress="60%" />
+        <Progress progress={`${randomProgress()}%`} />
         <div className="divider" />
         <ProgressUpdate chapter="Chapter 1" />
       </div>

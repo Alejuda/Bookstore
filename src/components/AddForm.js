@@ -3,6 +3,12 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/booksSlice';
 
+function randomCategory() {
+  const categories = ['Fiction', 'Action', 'Economy', 'Adventure', 'Romance', 'Comedy'];
+  const randomIndex = Math.floor(Math.random() * categories.length);
+  return categories[randomIndex];
+}
+
 const AddForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -23,7 +29,7 @@ const AddForm = () => {
       itemId: uuidv4(),
       title,
       author,
-      category: 'Action',
+      category: randomCategory(),
     };
     dispatch(addBook(newBook));
     setTitle('');
