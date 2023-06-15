@@ -148,6 +148,10 @@
   color: #121212;
 }
 
+.rc-progress-circle {
+  height: 4.25rem;
+}
+
 .completed {
   color: #121212;
   opacity: 0.5;

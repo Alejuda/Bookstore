@@ -23,7 +23,7 @@ const Book = (
         </div>
       </div>
       <div className="book-extra">
-        <Progress progress="64%" />
+        <Progress progress="60%" />
         <div className="divider" />
       </div>
     </div>
